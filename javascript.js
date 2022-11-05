@@ -21,8 +21,10 @@ function addToDo(event) {
  */
 function toggleToDo(event) {
   let targetElement = getRootElement(event.currentTarget);
-
-  //Your code here
+  //Should only have to single click, and escape by clicking outside the box -- come back to fix
+  targetElement.addEventListener("click", (event) => {
+    targetElement.classList.toggle("completed");
+  })
 }
 
 /**

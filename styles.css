@@ -39,3 +39,13 @@ form:first-child {
     margin-left:auto;
     align-self:flex-start;
 }
+
+
+
+/* ===============================
+        Javascript classes
+==================================*/
+
+.completed {
+    background-color:grey;
+}
