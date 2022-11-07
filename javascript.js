@@ -32,11 +32,14 @@ function toggleToDo(event) {
  * @param event the onclick event
  */
 function removeToDo(event) {
-  event.preventDefault();
-  event.stopPropagation();
+  //event.preventDefault();
+  //event.stopPropagation();
   let todoElement = getRootElement(event.currentTarget);
 
-  //Your code here
+  todoElement.addEventListener("click", (event) => {
+    var el = todoElement;
+    el.parentNode.remove();
+  })
 }
 
 /**
