@@ -5,11 +5,26 @@
  */
 function addToDo(event) {
   event.preventDefault();
+  let targetElement = document.getElementById("submit");
+  const toDoContainer = document.getElementById("todo-container");
+  const title = document.getElementById("title");
+  const description = document.getElementById("description");
 
-  /**
-   * Put your code below to create a new TODO HTML block,
-   * get the appropriate data from the form, and add it to the DOM.
-   */
+  //Right now, code adds 1 box, then 2 boxes the next time, then 3 boxes and so on...
+  //Does not come with completed class getting attached to it
+  targetElement.addEventListener("click", (event) => {
+    let toDoBox = ``;
+    toDoBox += `<div class="todo" onlick="toggleToDo(event)">`;
+    toDoBox += `<div class="todo-header">`;
+    toDoBox += `<h2>${title.value}</h2>`;
+    toDoBox += `<button aria-label="delete item" onclick="removeToDo(event)">X</button>`;
+    toDoBox += `</div>`;
+    toDoBox += `<div class="todo-description">${description.value}</div>`;
+    toDoBox += `</div>`;
+
+
+    toDoContainer.innerHTML += toDoBox;
+  })
 }
 
 /**
@@ -38,7 +53,7 @@ function removeToDo(event) {
 
   todoElement.addEventListener("click", (event) => {
     var el = todoElement;
-    el.parentNode.remove();
+    el.remove();
   })
 }
 

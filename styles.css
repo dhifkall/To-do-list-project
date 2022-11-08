@@ -17,11 +17,11 @@ form:first-child {
     flex-wrap:wrap;
 }
 
-/*work here next */
+
 .todo {
     box-shadow: 5px 5px 5px 5px lightgrey;
     padding:10px 30px 10px 30px;
-    margin-top:35px;
+    margin: 35px 30px 20px 0;
     width:300px;
     height:300px;
 }
@@ -34,6 +34,13 @@ form:first-child {
 .todo-header {
     display:flex;
 }
+
+/*Text overflows at the bottom if too long- needs to be clipped off*/
+.todo-description {
+    word-wrap: break-word;
+
+}
+
 /*move further to the right */
 .todo-header > button {
     margin-left:auto;
