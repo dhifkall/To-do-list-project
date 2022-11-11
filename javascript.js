@@ -1,3 +1,22 @@
+//Does not make sure there is input yet
+//Does not have toggleToDo work
+function makeListBox() {
+  let toDoBox = ``;
+  const toDoContainer = document.getElementById('todo-container');
+  const title = document.getElementById("title");
+  const description = document.getElementById("description");
+
+  toDoBox += `<div class="todo" onlick="toggleToDo(event)">`;
+  toDoBox += `<div class="todo-header">`;
+  toDoBox += `<h2>${title.value}</h2>`;
+  toDoBox += `<button aria-label="delete item" onclick="removeToDo(event)">X</button>`;
+  toDoBox += `</div>`;
+  toDoBox += `<div class="todo-description">${description.value}</div>`;
+  toDoBox += `</div>`;
+
+  toDoContainer.insertAdjacentHTML("beforeend", toDoBox);
+}
+
 /**
  * Function that should add a TODO HTML block to the DOM using
  * the appropriate data from the form when the form is submitted
@@ -5,26 +24,10 @@
  */
 function addToDo(event) {
   event.preventDefault();
-  let targetElement = document.getElementById("submit");
-  const toDoContainer = document.getElementById("todo-container");
-  const title = document.getElementById("title");
-  const description = document.getElementById("description");
+  const btn = document.getElementById('submit');
 
-  //Right now, code adds 1 box, then 2 boxes the next time, then 3 boxes and so on...
-  //Does not come with completed class getting attached to it
-  targetElement.addEventListener("click", (event) => {
-    let toDoBox = ``;
-    toDoBox += `<div class="todo" onlick="toggleToDo(event)">`;
-    toDoBox += `<div class="todo-header">`;
-    toDoBox += `<h2>${title.value}</h2>`;
-    toDoBox += `<button aria-label="delete item" onclick="removeToDo(event)">X</button>`;
-    toDoBox += `</div>`;
-    toDoBox += `<div class="todo-description">${description.value}</div>`;
-    toDoBox += `</div>`;
+  btn.addEventListener("click", makeListBox());
 
-
-    toDoContainer.innerHTML += toDoBox;
-  })
 }
 
 /**
@@ -47,8 +50,6 @@ function toggleToDo(event) {
  * @param event the onclick event
  */
 function removeToDo(event) {
-  //event.preventDefault();
-  //event.stopPropagation();
   let todoElement = getRootElement(event.currentTarget);
 
   todoElement.addEventListener("click", (event) => {
@@ -72,3 +73,5 @@ function getRootElement(element) {
   }
   return targetElement;
 }
+
+addToDo();

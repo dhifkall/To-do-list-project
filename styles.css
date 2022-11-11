@@ -17,9 +17,9 @@ form:first-child {
     flex-wrap:wrap;
 }
 
-
 .todo {
     box-shadow: 5px 5px 5px 5px lightgrey;
+    border-radius:7px;
     padding:10px 30px 10px 30px;
     margin: 35px 30px 20px 0;
     width:300px;
@@ -38,6 +38,7 @@ form:first-child {
 /*Text overflows at the bottom if too long- needs to be clipped off*/
 .todo-description {
     word-wrap: break-word;
+    overflow:hidden;
 
 }
 
