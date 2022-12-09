@@ -38,12 +38,13 @@ form:first-child {
 /*Text overflows at the bottom if too long- needs to be clipped off*/
 .todo-description {
     word-wrap: break-word;
-    overflow:hidden;
+    /* overflow:hidden;
+    text-overflow:ellipsis; */
 
 }
 
-/*move further to the right */
-.todo-header > button {
+/*todo-header > button */
+.close-button {
     margin-left:auto;
     align-self:flex-start;
 }
