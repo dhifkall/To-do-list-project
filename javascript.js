@@ -1,6 +1,5 @@
 //Does not make sure there is input yet
 function makeListBox(event) {
-  // let toDoBox = ``;
   const toDoContainer = document.getElementById('todo-container');
   const title = document.getElementById("title");
   const description = document.getElementById("description");
@@ -11,7 +10,7 @@ function makeListBox(event) {
   let header = document.createElement('div');
   header.className = 'todo-header';
   toDoDiv.appendChild(header);
-  let header2 = document.createElement('h2');
+  let header2 = document.createElement('h2'); 
   header2.innerHTML = title.value;
   header.appendChild(header2);
   let button = document.createElement('button');
@@ -19,26 +18,13 @@ function makeListBox(event) {
   button.innerHTML = 'X';
   button.addEventListener("click", removeToDo);
   button.setAttribute('aria-label', 'delete item');
-  header2.appendChild(button);
+  header.appendChild(button);
   let descriptionDiv = document.createElement('div');
   descriptionDiv.className = "todo-description";
   descriptionDiv.innerHTML = description.value;
   toDoDiv.appendChild(descriptionDiv);
 
   toDoContainer.appendChild(toDoDiv);
-
-
-  //createElement - won't be attached to document
-  // can add elements & html etc, then need to attach to document
-  // toDoBox += `<div class="todo" onClick="toggleToDo(event)">`;
-  // toDoBox += `<div class="todo-header">`;
-  // toDoBox += `<h2>${title.value}</h2>`;
-  // toDoBox += `<button aria-label="delete item" onclick="removeToDo(event)">X</button>`;
-  // toDoBox += `</div>`;
-  // toDoBox += `<div class="todo-description">${description.value}</div>`;
-  // toDoBox += `</div>`;
-
-  // toDoContainer.insertAdjacentHTML("beforeend", toDoBox);
 }
 
 /**
@@ -48,7 +34,6 @@ function makeListBox(event) {
  */
 function addToDo(event) {
   event.preventDefault();
-  //don't need event listener- just makeListBox()
   onsubmit = makeListBox('submit');
 }
 
@@ -61,10 +46,7 @@ function addToDo(event) {
  */
 function toggleToDo(event) {
   let targetElement = getRootElement(event.currentTarget);
-  //Should only have to single click, and escape by clicking outside the box -- come back to fix
-  //Don't need event listener
-
-    targetElement.classList.toggle("completed");
+  targetElement.classList.toggle("completed");
 }
 
 /**
