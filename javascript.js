@@ -11,7 +11,7 @@ function makeListBox(event) {
   header.className = 'todo-header';
   toDoDiv.appendChild(header);
   let header2 = document.createElement('h2'); 
-  header2.innerHTML = title.value;
+  header2.innerText = title.value;
   header.appendChild(header2);
   let button = document.createElement('button');
   button.className = 'close-button';
@@ -21,7 +21,7 @@ function makeListBox(event) {
   header.appendChild(button);
   let descriptionDiv = document.createElement('div');
   descriptionDiv.className = "todo-description";
-  descriptionDiv.innerHTML = description.value;
+  descriptionDiv.innerText = description.value;
   toDoDiv.appendChild(descriptionDiv);
 
   toDoContainer.appendChild(toDoDiv);
@@ -34,7 +34,7 @@ function makeListBox(event) {
  */
 function addToDo(event) {
   event.preventDefault();
-  onsubmit = makeListBox('submit');
+  makeListBox('submit');
 }
 
 /**
